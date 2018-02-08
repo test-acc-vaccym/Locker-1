@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Locker</string>
+    <string name="app_description">Secure your data by wiping your device if someone tries to login</string>
+
     <string name="admin_description">Allow Locker to monitor failed login attempts and erase your device</string>
 
     <string name="about">About</string>

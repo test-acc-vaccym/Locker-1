@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <CheckBoxPreference
-        android:key="stringsettings_key_tap_to_reveal"
-        android:defaultValue="false" />
+    <Preference
+        android:key="@string/settings_key_device_admin"
+        android:title="Enable admin"/>
 
 </PreferenceScreen>

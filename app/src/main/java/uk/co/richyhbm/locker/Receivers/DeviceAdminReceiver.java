@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
 
+import uk.co.richyhbm.locker.R;
 import uk.co.richyhbm.locker.Utilities.Settings;
 
 public class DeviceAdminReceiver extends android.app.admin.DeviceAdminReceiver {
@@ -18,7 +19,7 @@ public class DeviceAdminReceiver extends android.app.admin.DeviceAdminReceiver {
 
     @Override
     public CharSequence onDisableRequested(Context context, Intent intent) {
-        return "remove_admin_warning";
+        return context.getString(R.string.remove_admin_warning);
     }
 
     @Override

@@ -23,21 +23,6 @@ public class MainActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction()
                 .replace(R.id.frame_layout, new PreferencesFragment())
                 .commit();
-
-        /*
-
-        checkBoxAdmin.clickListener(
-            if checkBoxAdmin.isGettingDisabled()
-            {
-                DevicePolicyManager dpm = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
-                ComponentName adminName = new ComponentName(this, DeviceAdminReceiver.class);
-
-                if(dpm != null && dpm.isAdminActive(adminName))
-                    dpm.removeActiveAdmin(adminName);
-            }
-        )
-
-         */
     }
 
     @Override

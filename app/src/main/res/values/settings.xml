@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="settings_key_device_admin" translatable="false">pref_device_admin</string>
+</resources>

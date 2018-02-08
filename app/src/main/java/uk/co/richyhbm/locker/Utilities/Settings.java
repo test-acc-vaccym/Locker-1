@@ -4,6 +4,7 @@ package uk.co.richyhbm.locker.Utilities;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -26,27 +27,14 @@ public class Settings {
     private long getLong(int keyId, long defaultValue) { return settings.getLong(getResString(keyId), defaultValue); }
 
     private void setBoolean(int keyId, boolean value) {
-        settings.edit()
-                .putBoolean(getResString(keyId), value)
-                .apply();
+        settings.edit().putBoolean(getResString(keyId), value).apply();
     }
 
     private void setInt(int keyId, int value) {
-        settings.edit()
-                .putInt(getResString(keyId), value)
-                .apply();
+        settings.edit().putInt(getResString(keyId), value).apply();
     }
 
     private void remove(int keyId) {
-        settings.edit()
-                .remove(getResString(keyId))
-                .apply();
-    }
-
-    public boolean isAdmin() {
-        DevicePolicyManager dpm = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-        ComponentName adminName = new ComponentName(context, DeviceAdminReceiver.class);
-
-        return dpm != null && dpm.isAdminActive(adminName);
+        settings.edit().remove(getResString(keyId)).apply();
     }
 }
