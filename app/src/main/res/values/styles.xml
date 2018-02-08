@@ -1,11 +1,20 @@
 <resources>
 
+    <attr name="cardStyle" format="reference" />
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CardViewStyle" parent="CardView">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="contentPadding">@dimen/activity_margin</item>
+        <item name="android:layout_margin">@dimen/activity_margin</item>
     </style>
 
 </resources>
