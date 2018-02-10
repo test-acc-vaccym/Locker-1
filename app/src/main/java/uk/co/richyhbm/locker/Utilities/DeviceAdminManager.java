@@ -1,5 +1,6 @@
 package uk.co.richyhbm.locker.Utilities;
 
+import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -9,9 +10,12 @@ import uk.co.richyhbm.locker.R;
 import uk.co.richyhbm.locker.Receivers.DeviceAdminReceiver;
 
 public class DeviceAdminManager {
+    public static final int ADD_DEVICE_ADMIN_ACTIVITY_REQUEST = 654;
+
     private Context context;
     private DevicePolicyManager devicePolicyManager;
     private ComponentName adminName;
+
 
     public DeviceAdminManager(Context context) {
         this.context = context;
@@ -23,12 +27,13 @@ public class DeviceAdminManager {
         return devicePolicyManager != null && devicePolicyManager.isAdminActive(adminName);
     }
 
-    public void openAddDeviceAdminActivity() {
+
+    public void openAddDeviceAdminActivity(Activity activity) {
         Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
         ComponentName deviceAdminComponentName = new ComponentName(context, DeviceAdminReceiver.class);
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminComponentName);
         intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, context.getString(R.string.admin_description));
-        context.startActivity(intent);
+        activity.startActivityForResult(intent, ADD_DEVICE_ADMIN_ACTIVITY_REQUEST);
     }
 
     private void openSecuritySettingsActivity() {
@@ -40,5 +45,10 @@ public class DeviceAdminManager {
     public void removeAdmin() {
         if(isAdmin())
             devicePolicyManager.removeActiveAdmin(adminName);
+    }
+
+    public void wipe(boolean wipeExternalStorage) {
+        if(isAdmin())
+            devicePolicyManager.wipeData(wipeExternalStorage ? DevicePolicyManager.WIPE_EXTERNAL_STORAGE : 0);
     }
 }

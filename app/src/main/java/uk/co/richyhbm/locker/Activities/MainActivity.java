@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import uk.co.richyhbm.locker.Fragments.PreferencesFragment;
 import uk.co.richyhbm.locker.R;
+import uk.co.richyhbm.locker.Utilities.DeviceAdminManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == DeviceAdminManager.ADD_DEVICE_ADMIN_ACTIVITY_REQUEST) {
+            recreate();
         }
     }
 }
