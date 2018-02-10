@@ -13,6 +13,7 @@
 
     <string name="safe_mode">Safe mode</string>
     <string name="safe_mode_desc">Safe mode will only display a notification if rules are met, it wont wipe your device</string>
+    <string name="safe_mode_triggered">Locker safe mode was triggered, with safe mode deactivated this would have caused a device wipe</string>
 
     <string name="persist_fails_after_reboot">Persist on reboot</string>
     <string name="persist_fails_after_reboot_desc">Persist failed login attempts on reboot,
