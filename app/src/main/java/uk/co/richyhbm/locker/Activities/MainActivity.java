@@ -1,17 +1,13 @@
 package uk.co.richyhbm.locker.Activities;
 
-import android.app.admin.DevicePolicyManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import uk.co.richyhbm.locker.Fragments.PreferencesFragment;
 import uk.co.richyhbm.locker.R;
-import uk.co.richyhbm.locker.Receivers.DeviceAdminReceiver;
 
 public class MainActivity extends AppCompatActivity {
 

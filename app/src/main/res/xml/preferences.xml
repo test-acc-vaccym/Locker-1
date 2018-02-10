@@ -3,6 +3,6 @@
 
     <Preference
         android:key="@string/settings_key_device_admin"
-        android:title="Enable admin"/>
+        android:title="@string/enable_device_admin"/>
 
 </PreferenceScreen>

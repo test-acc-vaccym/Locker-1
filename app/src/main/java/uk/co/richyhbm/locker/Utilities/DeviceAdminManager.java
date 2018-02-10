@@ -4,7 +4,6 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.provider.Settings;
 
 import uk.co.richyhbm.locker.R;
 import uk.co.richyhbm.locker.Receivers.DeviceAdminReceiver;
@@ -24,12 +23,7 @@ public class DeviceAdminManager {
         return devicePolicyManager != null && devicePolicyManager.isAdminActive(adminName);
     }
 
-    public void openDeviceAdminActivity(boolean enableAdmin) {
-        if(enableAdmin) openAddDeviceAdminActivity();
-        else openSettingsDeviceAdminActivity();
-    }
-
-    private void openAddDeviceAdminActivity() {
+    public void openAddDeviceAdminActivity() {
         Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
         ComponentName deviceAdminComponentName = new ComponentName(context, DeviceAdminReceiver.class);
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminComponentName);
@@ -37,8 +31,9 @@ public class DeviceAdminManager {
         context.startActivity(intent);
     }
 
-    private void openSettingsDeviceAdminActivity() {
-        Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+    private void openSecuritySettingsActivity() {
+        Intent intent = new Intent(android.provider.Settings.ACTION_SECURITY_SETTINGS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 

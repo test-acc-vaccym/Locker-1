@@ -1,6 +1,5 @@
 package uk.co.richyhbm.locker.Receivers;
 
-import android.app.Application;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;

@@ -7,4 +7,7 @@
     <string name="about">About</string>
 
     <string name="remove_admin_warning">Removing Locker as a device admin will disable device wipe on incorrect logins</string>
+
+    <string name="enable_device_admin">Enable as device admin</string>
+    <string name="remove_device_admin">Remove as device admin</string>
 </resources>

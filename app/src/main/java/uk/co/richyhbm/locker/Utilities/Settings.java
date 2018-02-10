@@ -1,14 +1,9 @@
 package uk.co.richyhbm.locker.Utilities;
 
 
-import android.app.admin.DevicePolicyManager;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-
-import uk.co.richyhbm.locker.Receivers.DeviceAdminReceiver;
 
 public class Settings {
     private Context context;
