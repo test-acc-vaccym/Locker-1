@@ -1,7 +1,9 @@
 package uk.co.richyhbm.locker.Fragments;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
@@ -21,6 +23,10 @@ public class PreferencesFragment extends PreferenceFragment {
         deviceAdminManager = new DeviceAdminManager(getActivity());
         addPreferencesFromResource(R.xml.preferences);
         setUpDeviceAdminEnabler();
+
+        findPreference(getString(R.string.settings_key_safe_mode)).setEnabled(deviceAdminManager.isAdmin());
+        findPreference(getString(R.string.settings_key_persist_fails_after_reboot)).setEnabled(deviceAdminManager.isAdmin());
+        findPreference(getString(R.string.settings_key_max_failed_logins_for_wipe)).setEnabled(deviceAdminManager.isAdmin());
     }
 
     private void setUpDeviceAdminEnabler() {
@@ -38,7 +44,7 @@ public class PreferencesFragment extends PreferenceFragment {
                             getActivity().recreate();
                 });
             } else {
-                deviceAdminManager.openAddDeviceAdminActivity();
+                deviceAdminManager.openAddDeviceAdminActivity(getActivity());
             }
             return true;
         });
