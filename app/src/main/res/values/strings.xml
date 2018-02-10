@@ -10,4 +10,16 @@
 
     <string name="enable_device_admin">Enable as device admin</string>
     <string name="remove_device_admin">Remove as device admin</string>
+
+    <string name="safe_mode">Safe mode</string>
+    <string name="safe_mode_desc">Safe mode will only display a notification if rules are met, it wont wipe your device</string>
+
+    <string name="persist_fails_after_reboot">Persist on reboot</string>
+    <string name="persist_fails_after_reboot_desc">Persist failed login attempts on reboot,
+        this will stop a reboot being used as a workaround for not wiping the device</string>
+
+    <string name="max_failed_logins_for_wipe">Max login attempts</string>
+    <string name="max_failed_logins_for_wipe_desc">Amount of login failures that should trigger a wipe</string>
+
+    <string name="wipe_external_storage">Wipe external storage</string>
 </resources>

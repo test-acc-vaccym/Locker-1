@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings_key_device_admin" translatable="false">pref_device_admin</string>
+    <string name="settings_key_safe_mode" translatable="false">pref_safe_mode</string>
+    <string name="settings_key_persist_fails_after_reboot" translatable="false">pref_persist_fails_after_reboot</string>
+    <string name="settings_key_max_failed_logins_for_wipe" translatable="false">pref_max_failed_logins_for_wipe</string>
+    <string name="settings_key_failed_logins_count" translatable="false">pref_failed_logins_count</string>
+    <string name="settings_key_wipe_external_storage" translatable="false">pref_wipe_external_storage</string>
 </resources>

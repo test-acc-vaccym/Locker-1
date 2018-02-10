@@ -3,6 +3,30 @@
 
     <Preference
         android:key="@string/settings_key_device_admin"
-        android:title="@string/enable_device_admin"/>
+        android:title="@string/enable_device_admin" />
+
+    <CheckBoxPreference
+        android:key="@string/settings_key_safe_mode"
+        android:title="@string/safe_mode"
+        android:summary="@string/safe_mode_desc"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
+        android:key="@string/settings_key_persist_fails_after_reboot"
+        android:title="@string/persist_fails_after_reboot"
+        android:summary="@string/persist_fails_after_reboot_desc"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
+        android:key="@string/settings_key_wipe_external_storage"
+        android:title="@string/wipe_external_storage"
+        android:defaultValue="false" />
+
+    <EditTextPreference
+        android:key="@string/settings_key_max_failed_logins_for_wipe"
+        android:title="@string/max_failed_logins_for_wipe"
+        android:summary="@string/max_failed_logins_for_wipe_desc"
+        android:inputType="numberDecimal"
+        android:digits="0123456789" />
 
 </PreferenceScreen>
