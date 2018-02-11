@@ -16,7 +16,6 @@ public class DeviceAdminManager {
     private DevicePolicyManager devicePolicyManager;
     private ComponentName adminName;
 
-
     public DeviceAdminManager(Context context) {
         this.context = context;
         this.devicePolicyManager = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
@@ -47,8 +46,20 @@ public class DeviceAdminManager {
             devicePolicyManager.removeActiveAdmin(adminName);
     }
 
-    public void wipe(boolean wipeExternalStorage) {
+    private void wipe(boolean wipeExternalStorage) {
         if(isAdmin())
             devicePolicyManager.wipeData(wipeExternalStorage ? DevicePolicyManager.WIPE_EXTERNAL_STORAGE : 0);
+    }
+
+    public void setMaximumFailedPasswordsForWipe(int amount) {
+        if(isAdmin()) {
+            devicePolicyManager.setMaximumFailedPasswordsForWipe(adminName, amount);
+        }
+    }
+
+    public void disableMaximumFailedPasswordsForWipe() {
+        if(isAdmin()) {
+            devicePolicyManager.setMaximumFailedPasswordsForWipe(adminName, 0);
+        }
     }
 }

@@ -2,6 +2,7 @@ package uk.co.richyhbm.locker.Fragments;
 
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
@@ -21,18 +22,16 @@ public class PreferencesFragment extends PreferenceFragment {
         deviceAdminManager = new DeviceAdminManager(getActivity());
         addPreferencesFromResource(R.xml.preferences);
         setUpDeviceAdminEnabler();
-
-        findPreference(getString(R.string.settings_key_safe_mode)).setEnabled(deviceAdminManager.isAdmin());
-        findPreference(getString(R.string.settings_key_persist_fails_after_reboot)).setEnabled(deviceAdminManager.isAdmin());
-        findPreference(getString(R.string.settings_key_max_failed_logins_for_wipe)).setEnabled(deviceAdminManager.isAdmin());
     }
 
     private void setUpDeviceAdminEnabler() {
-        final Preference preference = findPreference(getString(R.string.settings_key_device_admin));
+        final CheckBoxPreference preference = (CheckBoxPreference)findPreference(getString(R.string.settings_key_device_admin));
         if(deviceAdminManager.isAdmin()) {
             preference.setTitle(R.string.remove_device_admin);
+            preference.setChecked(true);
         } else {
             preference.setTitle(R.string.enable_device_admin);
+            preference.setChecked(false);
         }
 
         preference.setOnPreferenceClickListener(onClick -> {
