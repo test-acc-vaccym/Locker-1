@@ -31,13 +31,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver
-            android:name=".Receivers.BootReceiver"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

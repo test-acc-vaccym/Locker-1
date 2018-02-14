@@ -15,16 +15,10 @@
         android:dependency="@string/settings_key_device_admin"/>
 
     <CheckBoxPreference
-        android:key="@string/settings_key_persist_fails_after_reboot"
-        android:title="@string/persist_fails_after_reboot"
-        android:summary="@string/persist_fails_after_reboot_desc"
-        android:defaultValue="true" />
-
-    <CheckBoxPreference
         android:key="@string/settings_key_wipe_external_storage"
         android:title="@string/wipe_external_storage"
         android:defaultValue="false"
-        android:enabled="false" />
+        android:dependency="@string/settings_key_device_admin" />
 
     <EditTextPreference
         android:key="@string/settings_key_max_failed_logins_for_wipe"

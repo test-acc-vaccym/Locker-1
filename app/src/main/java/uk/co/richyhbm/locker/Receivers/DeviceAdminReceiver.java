@@ -27,18 +27,19 @@ public class DeviceAdminReceiver extends android.app.admin.DeviceAdminReceiver {
     public void onDisabled(Context context, Intent intent) {
         Settings settings = new Settings(context);
         settings.resetCurrentFailedAttempts();
-        DeviceAdminManager deviceAdminManager = new DeviceAdminManager(context);
-        deviceAdminManager.disableMaximumFailedPasswordsForWipe();
     }
 
     @Override
     public void onPasswordFailed(Context context, Intent intent, UserHandle user) {
         Settings settings = new Settings(context);
         settings.addToCurrentFailedAttempts();
+        DeviceAdminManager deviceAdminManager = new DeviceAdminManager(context);
 
         if(settings.currentFailedAttempts() > 0 && settings.currentFailedAttempts() >= settings.getMaxFailedAttemptsForWipe()) {
             if (settings.isInSafeMode()) {
                 NotificationHelper.notify(context, R.string.app_name, R.string.safe_mode_triggered);
+            } else {
+                deviceAdminManager.wipe(settings.wipeExternalStorage());
             }
         }
     }
@@ -47,8 +48,5 @@ public class DeviceAdminReceiver extends android.app.admin.DeviceAdminReceiver {
     public void onPasswordSucceeded(Context context, Intent intent, UserHandle user) {
         Settings settings = new Settings(context);
         settings.resetCurrentFailedAttempts();
-        DeviceAdminManager deviceAdminManager = new DeviceAdminManager(context);
-        deviceAdminManager.setMaximumFailedPasswordsForWipe(
-                settings.isInSafeMode() ? 0 : settings.getMaxFailedAttemptsForWipe());
     }
 }

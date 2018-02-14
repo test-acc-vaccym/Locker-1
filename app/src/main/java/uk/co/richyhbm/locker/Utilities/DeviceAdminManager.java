@@ -46,7 +46,7 @@ public class DeviceAdminManager {
             devicePolicyManager.removeActiveAdmin(adminName);
     }
 
-    private void wipe(boolean wipeExternalStorage) {
+    public void wipe(boolean wipeExternalStorage) {
         if(isAdmin())
             devicePolicyManager.wipeData(wipeExternalStorage ? DevicePolicyManager.WIPE_EXTERNAL_STORAGE : 0);
     }

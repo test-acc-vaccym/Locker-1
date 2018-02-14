@@ -34,7 +34,6 @@ public class Settings {
     }
 
     public boolean isInSafeMode() { return getBoolean(R.string.settings_key_safe_mode, true); }
-    public boolean shouldPersistFailsAfterReboot() { return getBoolean(R.string.settings_key_safe_mode, true); }
 
     public int getMaxFailedAttemptsForWipe() { return Integer.parseInt(getString(R.string.settings_key_max_failed_logins_for_wipe, "0")); }
     public int currentFailedAttempts() { return getInt(R.string.settings_key_failed_logins_count, 0); }
